@@ -2,30 +2,46 @@ import { css } from "@emotion/core"
 import React from "react"
 import styled from "@emotion/styled"
 
-import CosmicLayout from "@/layouts/CosmicLayout"
+import { HEADER_HEIGHT } from "@/utils/dimens"
 import Helmet from "@/components/Helmet"
+import Layout from "@/layouts/Layout"
+import Loadable from "react-loadable"
 import Typist from "react-typist"
 
 const Wrapper = styled.article`
+  position: relative;
   display: flex;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - ${HEADER_HEIGHT}px);
   align-items: center;
   justify-content: center;
   color: white;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
 `
 
 const Article = styled.article`
   width: 312px;
   height: 240px;
+  z-index: 1;
 `
 
 const Title = styled.h1`
   font-family: "Play";
 `
 
+const ParticlesBg = Loadable({
+  loader: () => import("particles-bg"),
+  loading: () => <canvas />,
+})
+
 const IndexPage: React.FC = () => (
-  <CosmicLayout>
+  <Layout>
     <Helmet />
 
     <Wrapper>
@@ -49,8 +65,10 @@ const IndexPage: React.FC = () => (
           I love Kotlin and TypeScript ❤
         </Typist>
       </Article>
+
+      <ParticlesBg type="cobweb" color="#ffffff" />
     </Wrapper>
-  </CosmicLayout>
+  </Layout>
 )
 
 export default IndexPage
