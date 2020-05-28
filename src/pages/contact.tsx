@@ -56,8 +56,8 @@ const SubmitButton = styled.button`
 const ContactPage: React.FC = () => {
   const { handleSubmit, register, errors } = useForm()
 
-  const onSubmit: Parameters<typeof handleSubmit>[0] = (values) => {
-    console.log(values)
+  const onSubmit: Parameters<typeof handleSubmit>[0] = (_, e) => {
+    e?.target.submit()
   }
 
   return (
