@@ -1,9 +1,11 @@
+import React from "react"
+import styled from "@emotion/styled"
+
 import ExternalLink from "@/components/ExternalLink"
+import Helmet from "@/components/Helmet"
 import ImageCard from "@/components/ImageCard"
 import PaddingLayout from "@/layouts/PaddingLayout"
 import Paragraph from "@/components/Paragraph"
-import React from "react"
-import styled from "@emotion/styled"
 
 const Subtitle = styled.h2`
   color: white;
@@ -62,6 +64,8 @@ const Subheading: React.FC<{ href: string }> = ({ href, children }) => {
 
 const WorksPage: React.FC = () => (
   <PaddingLayout>
+    <Helmet title="Works" description="管理人が業務や趣味で作った、公開できるプロダクトの一覧です。" />
+
     <Subtitle>Business</Subtitle>
 
     <Description>

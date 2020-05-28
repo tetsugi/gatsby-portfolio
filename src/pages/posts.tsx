@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 
 import { PostsPageQuery } from "@@/types/graphql"
+import Helmet from "@/components/Helmet"
 import PaddingLayout from "@/layouts/PaddingLayout"
 import PostSummary from "@/components/PostSummary"
 
@@ -11,6 +12,8 @@ type PostsPageProps = {
 
 const PostsPage: React.FC<PostsPageProps> = ({ data }) => (
   <PaddingLayout>
+    <Helmet title="Posts" description="管理人が業務や趣味などで経験したことをメモ代わりに記事にしたものです。" />
+
     {data.allMarkdownRemark.edges.map(({ node }, i) => (
       <PostSummary
         style={i ? { marginTop: "16px" } : {}}

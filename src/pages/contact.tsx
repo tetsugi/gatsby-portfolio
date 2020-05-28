@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import React from "react"
 
+import Helmet from "@/components/Helmet"
 import PaddingLayout from "@/layouts/PaddingLayout"
 import Paragraph from "@/components/Paragraph"
 import styled from "@emotion/styled"
@@ -62,6 +63,8 @@ const ContactPage: React.FC = () => {
 
   return (
     <PaddingLayout>
+      <Helmet title="Contact" description="お問い合わせフォームです。耳寄りな情報待ってます。" />
+
       <Section>
         <Note>
           お問い合わせに関しては、採用関係・質問・バグ報告・何か面白そうな話などについて受け付けております。<br />

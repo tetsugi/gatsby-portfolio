@@ -1,12 +1,13 @@
-import React from "react"
-
 import { css } from "@emotion/core"
+import React from "react"
+import styled from "@emotion/styled"
+
 import { useBreakpoint } from "@/hooks/useBreakpoint"
 import Card from "@/components/Card"
+import Helmet from "@/components/Helmet"
 import IconCard from "@/components/IconCard"
 import PaddingLayout from "@/layouts/PaddingLayout"
 import Paragraph from "@/components/Paragraph"
-import styled from "@emotion/styled"
 
 const profile = `
 都内でITエンジニアとして働いている「てつぎ」と申します。
@@ -29,6 +30,8 @@ const ProfilePage: React.FC = () => {
 
   return (
     <PaddingLayout>
+      <Helmet title="Profile" description="管理人のプロフィールとスキルを載せています。" />
+
       <IconCard src="/img/icon.jpg" alt="Tetsugiのプロフィール画像">
         <Paragraph
           css={css`
