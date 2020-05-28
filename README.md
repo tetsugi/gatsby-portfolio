@@ -1,5 +1,7 @@
 # gatsby-portfolio
 
+https://tetsugi.netlify.app/
+
 My portfolio site made with Gatsby.
 
 ## Usage
