@@ -7,6 +7,7 @@ import Helmet from "@/components/Helmet"
 import Layout from "@/layouts/Layout"
 import Loadable from "react-loadable"
 import Typist from "react-typist"
+import useWindowSize from "@/hooks/useWindowSize"
 
 const Wrapper = styled.article`
   position: relative;
@@ -40,35 +41,40 @@ const ParticlesBg = Loadable({
   loading: () => <canvas />,
 })
 
-const IndexPage: React.FC = () => (
-  <Layout>
-    <Helmet />
+const IndexPage: React.FC = () => {
+  const { width } = useWindowSize()
+  const number = Math.floor(width / 15)
 
-    <Wrapper>
-      <Article>
-        <Title>Tetsugi Portfolio</Title>
+  return (
+    <Layout>
+      <Helmet />
+
+      <Wrapper>
+        <Article>
+          <Title>Tetsugi Portfolio</Title>
         
-        <Typist css={css`
-          font-family: "Play";
-          white-space: pre-wrap;
-          word-break: break-word;
-        `}>
-          <Typist.Delay ms={500} />
-          I&apos;m a full-stack engineer.
-          <Typist.Backspace count={20} delay={100} />
-          yowayowa IT engineer.
-          <br />
-          <Typist.Delay ms={500} />
-          I&apos;m looking for a job where I can use my skills and make interesting apps!
-          <br />
-          <Typist.Delay ms={500} />
-          I love Kotlin and TypeScript ❤
-        </Typist>
-      </Article>
+          <Typist css={css`
+            font-family: "Play";
+            white-space: pre-wrap;
+            word-break: break-word;
+          `}>
+            <Typist.Delay ms={500} />
+            I&apos;m a full-stack engineer.
+            <Typist.Backspace count={20} delay={100} />
+            yowayowa IT engineer.
+            <br />
+            <Typist.Delay ms={500} />
+            I&apos;m looking for a job where I can use my skills and make interesting apps!
+            <br />
+            <Typist.Delay ms={500} />
+            I love Kotlin and TypeScript ❤
+          </Typist>
+        </Article>
 
-      <ParticlesBg type="cobweb" color="#ffffff" />
-    </Wrapper>
-  </Layout>
-)
+        <ParticlesBg type="cobweb" color="random" num={number} />
+      </Wrapper>
+    </Layout>
+  )
+}
 
 export default IndexPage
