@@ -4,7 +4,6 @@ import ReactHelmet, { HelmetProps as ReactHelmetProps } from "react-helmet"
 import type { HelmetQuery } from "types/graphql"
 
 type HelmetProps = {
-  lang?: string;
   description?: string;
 } & ReactHelmetProps
 
@@ -20,7 +19,6 @@ export const helmetQuery = graphql`
 `
 
 const Helmet: React.FC<HelmetProps> = ({
-  lang = "ja",
   title = "",
   description = "",
   meta = [],
@@ -36,7 +34,7 @@ const Helmet: React.FC<HelmetProps> = ({
       return (
         <ReactHelmet
           {...props}
-          htmlAttributes={{ lang }}
+          htmlAttributes={{ lang: "ja" }}
           title={
             title
               ? `${title} | ${siteMetadata?.title}`
