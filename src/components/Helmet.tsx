@@ -26,6 +26,7 @@ const Helmet: React.FC<HelmetProps> = ({
   meta = [],
   link = [],
   children,
+  ...props
 }) => (
   <StaticQuery
     query={ helmetQuery }
@@ -34,6 +35,7 @@ const Helmet: React.FC<HelmetProps> = ({
 
       return (
         <ReactHelmet
+          {...props}
           htmlAttributes={{ lang }}
           title={
             title
